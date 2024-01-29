@@ -58,6 +58,9 @@ class _CreateTodoFormState extends State<CreateTodoForm> {
         GestureDetector(
           onTap: () async{
             date = await showDatePickerPop(date,context);
+            setState(() {
+              //date = date;
+            });
           },
           child: Container(
             padding: EdgeInsets.all(8.0),
