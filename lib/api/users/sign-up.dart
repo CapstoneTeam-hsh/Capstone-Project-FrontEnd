@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 
 import '../../dto/signinDto.dart';
 import '../../dto/errorDto.dart';
+import '../url.dart';
 
 Future<dynamic> signup({
   required String? id,
@@ -13,7 +14,7 @@ Future<dynamic> signup({
 }) async {
   Errordto error = new Errordto();
   try {
-    final String URL = "http://localhost:8080/users/sign-up";
+    final String URL = url+"users/sign-up";
     final request = Uri.parse(URL);
 
     Map<String, dynamic> requestBody = {

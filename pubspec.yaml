@@ -38,6 +38,7 @@ dependencies:
   flutter_login: ^5.0.0
   mockito: ^5.4.4
   http: ^1.1.2
+  table_calendar: ^3.0.0
 
 dev_dependencies:
   flutter_test:
