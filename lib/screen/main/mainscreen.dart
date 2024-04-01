@@ -11,24 +11,33 @@ class mainscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: _title,
-      home: Screen(),
+      home: Screen(selectedIndex: 0,),
     );
   }
 }
 
 class Screen extends StatefulWidget {
-  const Screen({Key? key}) : super(key: key);
+  final int selectedIndex; // 인스턴스 변수로 변경
+
+  const Screen({Key? key, required this.selectedIndex}) : super(key: key);
 
   @override
   State<Screen> createState() => _ScreenState();
 }
 
 class _ScreenState extends State<Screen> {
-  int _selectedIndex = 0;
-
+  int _selectedIndex=0; // 인스턴스 변수로 변경
   final List<Widget> _widgetOptions = PageList.pages;
 
+  @override
+  void initState() {
+    super.initState();
+    // 위젯이 생성될 때 selectedIndex 값에 따라 초기 페이지 설정
+    _selectedIndex = widget.selectedIndex;
+  }
+
   void _onItemTapped(int index) {
+    // 바텀 네비게이션 아이템을 탭할 때마다 selectedIndex 변경
     setState(() {
       _selectedIndex = index;
     });
@@ -37,9 +46,6 @@ class _ScreenState extends State<Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text("hi"),
-      // ),
       body: SafeArea(
         child: AnimatedSwitcher(
           duration: Duration(milliseconds: 300),

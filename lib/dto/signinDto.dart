@@ -7,13 +7,15 @@ class Info {
   final String? uid;
   final String? name;
   final String? email;
-  final String? token;
+  final String? accesToken;
+  final String? refreshToken;
   Info({
     this.id,
     this.uid,
     this.name,
     this.email,
-    this.token,
+    this.accesToken,
+    this.refreshToken,
   });
 
   factory Info.fromJson(Map<String, dynamic> json){
@@ -22,7 +24,8 @@ class Info {
       uid: json["uid"],
       name: json["name"],
       email: json[ "email"],
-      token: json["token"],
+      accesToken: json["accesToken"],
+      refreshToken: json["refreshToken"],
     );
   }
   // 디코딩 메서드 추가

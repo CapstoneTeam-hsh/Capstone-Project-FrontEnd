@@ -14,7 +14,7 @@ Widget myTextFormField({
   dynamic? myicon = null,
   TextEditingController? controller,// 수정된 부분
   dynamic? error = null,
-
+  Color? error_color = Colors.red,
 }) {
   return TextFormField(
     controller: controller,
@@ -22,6 +22,10 @@ Widget myTextFormField({
       prefixIcon: Icon(myicon),
       labelText: label,
       errorText: error,
+      errorStyle: TextStyle(
+        fontWeight: FontWeight.w700,
+        color: error_color,
+      ),
     ),
     obscureText: obscure,
   );

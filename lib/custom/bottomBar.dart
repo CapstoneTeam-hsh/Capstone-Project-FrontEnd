@@ -20,16 +20,16 @@ class BottomBar extends StatelessWidget {
       showUnselectedLabels: true,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.text_snippet),
-          label: '나의 판매글',
-        ),
-        BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: '홈',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.people),
-          label: '마이페이지',
+          icon: Icon(Icons.group),
+          label: '그룹',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.settings),
+          label: '설정',
         ),
       ],
     );

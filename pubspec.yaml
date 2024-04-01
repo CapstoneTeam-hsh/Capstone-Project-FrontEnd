@@ -38,8 +38,16 @@ dependencies:
   flutter_login: ^5.0.0
   mockito: ^5.4.4
   http: ^1.1.2
-  table_calendar: ^3.0.0
-
+  table_calendar: ^3.1.0
+  network_info_plus: ^4.1.0+1
+  permission_handler: ^11.2.0
+  flutter_blue: ^0.8.0
+  flutter_blue_plus: ^1.31.13
+  flutter_naver_map: ^1.1.2
+  location: ^5.0.3
+  geolocator: ^10.1.0
+  flutter_background_geolocation: ^4.15.1
+  flutter_local_notifications: ^17.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

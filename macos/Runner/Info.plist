@@ -28,5 +28,7 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NMFClientId</key>
+        	<string>9qrjlzb2zc</string>
 </dict>
 </plist>

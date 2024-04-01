@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 
 import '../../dto/signinDto.dart';
 import '../../dto/errorDto.dart';
+import '../token.dart';
 import '../url.dart';
 
 Future<dynamic> signin({
@@ -12,14 +13,25 @@ Future<dynamic> signin({
 }) async {
   Info info = new Info(id: -1);
   Errordto error = new Errordto();
+
+  Map<String, dynamic> requestBody = {
+    "loginId": "$id",
+    "password": "$pw",
+  };
+
   try {
-    final String URL = url+"users/sign-in?uid=" + id +
-        "&password=" + pw;
+    final String URL = url+"users/sign-in";
     final request = Uri.parse(URL);
-    final response = await http.post(request,);
+    final response = await http.post(
+      request,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode(requestBody),
+    );
 
     if (response.statusCode == 200) {
-      // 서버 응답에서 토큰 값을 추출하여 반환
+      final Map<String, dynamic> responseData = jsonDecode(response.body);
+      token = responseData['result']['accessToken'];
+      print("로그인중 : $token");
       info = Info.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
       return info;
     } else {

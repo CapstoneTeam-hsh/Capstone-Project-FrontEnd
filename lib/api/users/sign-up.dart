@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 
 import '../../dto/signinDto.dart';
 import '../../dto/errorDto.dart';
+import '../token.dart';
 import '../url.dart';
 
 Future<dynamic> signup({
@@ -18,18 +19,19 @@ Future<dynamic> signup({
     final request = Uri.parse(URL);
 
     Map<String, dynamic> requestBody = {
-      "uid": "$id",
+      "loginId": "$id",
       "password": "$pw",
       "name": "$name",
-      "email": "$email"
+      "email": "$email",
     };
+
     final response = await http.post(
         request,
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(requestBody),
     );
     if (response.statusCode == 200) {
-      // 서버 응답에서 토큰 값을 추출하여 반환
+
       return true;
     } else {
       error = Errordto.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
